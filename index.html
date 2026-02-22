@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- tailwind -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>Document</title>
+</head>
+
+<body class="">
+  <!-- header section start from here  -->
+  <header class="w-[80%] mx-auto py-6">
+    <h1 class="text-4xl font-bold">Job Application Tracker</h1>
+    <div class="grid grid-cols-3 gap-6  mt-6">
+      <!-- 1st -->
+      <div class="bg-[#FFFDD0] p-4 rounded-md ">
+        <p class="text-xl">Total</p>
+        <p id="total" class="text-2xl">0</p>
+      </div>
+      <!-- 2nd -->
+      <div class="bg-[#FFFDD0] p-4 rounded-md ">
+        <p class="text-xl">InterView</p>
+        <p id="interview-count" class="text-green-500 text-2xl">0</p>
+      </div>
+      <!-- 3rd -->
+      <div class="bg-[#FFFDD0] p-4 rounded-md ">
+        <p class="text-xl">Rejected</p>
+        <p id="reject-count" class="text-red-500 text-2xl">0</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- card section start from here  -->
+  <main class="w-[80%] mx-auto py-6">
+    <section class="gap-3 flex justify-between">
+      <div>
+        <button onclick="toggleStyle('total-btn')" id="total-btn"
+          class="bg-blue-400 px-6 py-1 rounded-md text-[20px] text-white">ALL</button>
+        <button onclick="toggleStyle('interview-btn-main')" id="interview-btn-main"
+          class="bg-gray-400 text-white px-6 py-1 rounded-md text-[20px] ">INTERVIEW</button>
+        <button onclick="toggleStyle('reject-btn-main')" id="reject-btn-main"
+          class="bg-gray-400 text-white px-6 py-1 rounded-md text-[20px] ">REJECT</button>
+      </div>
+      <div>
+        <p class="text-xl text-gray-600"><span id="jobs">0</span> Jobs</p>
+      </div>
+    </section>
+    <!-- other-2 card  -->
+    <section id="filtered-section" class="hidden py-6">
+      <div class="min-h-screen flex flex-col justify-center items-center text-center space-y-1">
+        <img src="./image/jobs.png" alt="">
+        <h2 class="text-2xl font-bold">No jobs available</h2>
+        <p class="text-xl text-gray-500">Check back soon for new job opportunities</p>
+      </div>
+    </section>
+    <!-- main card start from here  -->
+    <section id="job-applications" class="py-6 space-y-2">
+      <!-- card 1 -->
+      <div class="flex justify-between border border-gray-500 p-3 rounded-md">
+        <!-- hero part -->
+        <div class="space-y-4">
+          <!-- 1st part  -->
+          <div>
+            <h2 class="offers text-2xl">Offer-1</h2>
+            <p class="kindof text-[18px] text-gray-600">React Native Developer</p>
+          </div>
+          <!-- 2nd part  -->
+          <div>
+            <p class="selary text-[16px] text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
+            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.
+              Work on
+              products used by millions of users worldwide.</p>
+          </div>
+          <!-- 3rd part -->
+          <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
+
+          <div>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">interview</button>
+            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">Rejected</button>
+          </div>
+
+        </div>
+        <!--  delete button part  -->
+        <div>
+          <button class="delete-btn"><img src="./image/Trash.png" alt=""></button>
+        </div>
+
+      </div>
+      <!-- card 2 -->
+      <div class="flex justify-between border border-gray-500 p-3 rounded-md">
+        <!-- hero part -->
+        <div class="space-y-4">
+          <!-- 1st part  -->
+          <div>
+            <h2 class="offers text-2xl">Offer-2</h2>
+            <p class="kindof text-[18px] text-gray-600">React Native Developer</p>
+          </div>
+          <!-- 2nd part  -->
+          <div>
+            <p class="selary text-[16px] text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
+            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.
+              Work on
+              products used by millions of users worldwide.</p>
+          </div>
+          <!-- 3rd part -->
+          <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
+
+          <div>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">interview</button>
+            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">Rejected</button>
+          </div>
+
+        </div>
+        <!--  delete button part  -->
+        <div>
+          <button class="delete-btn"><img src="./image/Trash.png" alt=""></button>
+        </div>
+
+      </div>
+      <!-- card 3 -->
+      <div class="flex justify-between border border-gray-500 p-3 rounded-md">
+        <!-- hero part -->
+        <div class="space-y-4">
+          <!-- 1st part  -->
+          <div>
+            <h2 class="offers text-2xl">Offer-3</h2>
+            <p class="kindof text-[18px] text-gray-600">React Native Developer</p>
+          </div>
+          <!-- 2nd part  -->
+          <div>
+            <p class="selary text-[16px] text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
+            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.
+              Work on
+              products used by millions of users worldwide.</p>
+          </div>
+          <!-- 3rd part -->
+          <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
+
+          <div>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">interview</button>
+            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">Rejected</button>
+          </div>
+
+        </div>
+        <!--  delete button part  -->
+        <div>
+          <button class="delete-btn"><img src="./image/Trash.png" alt=""></button>
+        </div>
+
+      </div>
+      <!-- card 4 -->
+      <div class="flex justify-between border border-gray-500 p-3 rounded-md">
+        <!-- hero part -->
+        <div class="space-y-4">
+          <!-- 1st part  -->
+          <div>
+            <h2 class="offers text-2xl">Offer-4</h2>
+            <p class="kindof text-[18px] text-gray-600">React Native Developer</p>
+          </div>
+          <!-- 2nd part  -->
+          <div>
+            <p class="selary text-[16px] text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
+            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.
+              Work on
+              products used by millions of users worldwide.</p>
+          </div>
+          <!-- 3rd part -->
+          <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
+
+          <div>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">interview</button>
+            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">Rejected</button>
+          </div>
+
+        </div>
+        <!--  delete button part  -->
+        <div>
+          <button class="delete-btn"><img src="./image/Trash.png" alt=""></button>
+        </div>
+
+      </div>
+      <!-- card 5 -->
+      <div class="flex justify-between border border-gray-500 p-3 rounded-md">
+        <!-- hero part -->
+        <div class="space-y-4">
+          <!-- 1st part  -->
+          <div>
+            <h2 class="offers text-2xl">Offer-5</h2>
+            <p class="kindof text-[18px] text-gray-600">React Native Developer</p>
+          </div>
+          <!-- 2nd part  -->
+          <div>
+            <p class="selary text-[16px] text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
+            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.
+              Work on
+              products used by millions of users worldwide.</p>
+          </div>
+          <!-- 3rd part -->
+          <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
+
+          <div>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">interview</button>
+            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">Rejected</button>
+          </div>
+
+        </div>
+        <!--  delete button part  -->
+        <div>
+          <button class="delete-btn"><img src="./image/Trash.png" alt=""></button>
+        </div>
+
+      </div>
+      <!-- card 6 -->
+      <div class="flex justify-between border border-gray-500 p-3 rounded-md">
+        <!-- hero part -->
+        <div class="space-y-4">
+          <!-- 1st part  -->
+          <div>
+            <h2 class="offers text-2xl">Offer-6</h2>
+            <p class="kindof text-[18px] text-gray-600">React Native Developer</p>
+          </div>
+          <!-- 2nd part  -->
+          <div>
+            <p class="selary text-[16px] text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
+            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.
+              Work on
+              products used by millions of users worldwide.</p>
+          </div>
+          <!-- 3rd part -->
+          <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
+
+          <div>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">interview</button>
+            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">Rejected</button>
+          </div>
+
+        </div>
+        <!--  delete button part  -->
+        <div>
+          <button class="delete-btn"><img src="./image/Trash.png" alt=""></button>
+        </div>
+
+      </div>
+      <!-- card 7 -->
+      <div class="flex justify-between border border-gray-500 p-3 rounded-md">
+        <!-- hero part -->
+        <div class="space-y-4">
+          <!-- 1st part  -->
+          <div>
+            <h2 class="offers text-2xl">Offer-7</h2>
+            <p class="kindof text-[18px] text-gray-600">React Native Developer</p>
+          </div>
+          <!-- 2nd part  -->
+          <div>
+            <p class="selary text-[16px] text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
+            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.
+              Work on
+              products used by millions of users worldwide.</p>
+          </div>
+          <!-- 3rd part -->
+          <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
+
+          <div>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">interview</button>
+            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">Rejected</button>
+          </div>
+
+        </div>
+        <!--  delete button part  -->
+        <div>
+          <button class="delete-btn"><img src="./image/Trash.png" alt=""></button>
+        </div>
+
+      </div>
+      <!-- card 8 -->
+      <div class="flex justify-between border border-gray-500 p-3 rounded-md">
+        <!-- hero part -->
+        <div class="space-y-4">
+          <!-- 1st part  -->
+          <div>
+            <h2 class="offers text-2xl">Offer-8</h2>
+            <p class="kindof text-[18px] text-gray-600">React Native Developer</p>
+          </div>
+          <!-- 2nd part  -->
+          <div>
+            <p class="selary text-[16px] text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
+            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.
+              Work on
+              products used by millions of users worldwide.</p>
+          </div>
+          <!-- 3rd part -->
+          <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
+
+          <div>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">interview</button>
+            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">Rejected</button>
+          </div>
+
+        </div>
+        <!--  delete button part  -->
+        <div>
+          <button class="delete-btn"><img src="./image/Trash.png" alt=""></button>
+        </div>
+
+      </div>
+
+    </section>
+  </main>
+
+  <script src="./script/count.js"></script>
+</body>
+
+</html>
