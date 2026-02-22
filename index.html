@@ -14,19 +14,19 @@
   <!-- header section start from here  -->
   <header class="w-[80%] mx-auto py-6">
     <h1 class="text-4xl font-bold">Job Application Tracker</h1>
-    <div class="grid grid-cols-3 gap-6  mt-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6  mt-6">
       <!-- 1st -->
-      <div class="bg-[#FFFDD0] p-4 rounded-md ">
+      <div class="bg-[#FFFDD0]  p-7 md:p-4 rounded-md flex justify-between items-center md:flex-col md:items-start md:justify-start">
         <p class="text-xl">Total</p>
         <p id="total" class="text-2xl">0</p>
       </div>
       <!-- 2nd -->
-      <div class="bg-[#FFFDD0] p-4 rounded-md ">
+      <div class="bg-[#FFFDD0]  p-7 md:p-4 rounded-md flex justify-between items-center md:flex-col md:items-start md:justify-start">
         <p class="text-xl">InterView</p>
         <p id="interview-count" class="text-green-500 text-2xl">0</p>
       </div>
       <!-- 3rd -->
-      <div class="bg-[#FFFDD0] p-4 rounded-md ">
+      <div class="bg-[#FFFDD0]  p-7 md:p-4 rounded-md flex justify-between items-center md:flex-col md:items-start md:justify-start">
         <p class="text-xl">Rejected</p>
         <p id="reject-count" class="text-red-500 text-2xl">0</p>
       </div>
@@ -34,9 +34,9 @@
   </header>
 
   <!-- card section start from here  -->
-  <main class="w-[80%] mx-auto py-6">
+  <main class="w-[90%] md:w-[80%] mx-auto py-6">
     <section class="gap-3 flex justify-between">
-      <div>
+      <div class="grid grid-row-3 md:grid-cols-3 gap-3">
         <button onclick="toggleStyle('total-btn')" id="total-btn"
           class="bg-blue-400 px-6 py-1 rounded-md text-[20px] text-white">ALL</button>
         <button onclick="toggleStyle('interview-btn-main')" id="interview-btn-main"
@@ -44,7 +44,7 @@
         <button onclick="toggleStyle('reject-btn-main')" id="reject-btn-main"
           class="bg-gray-400 text-white px-6 py-1 rounded-md text-[20px] ">REJECT</button>
       </div>
-      <div>
+      <div class="flex justify-center items-center">
         <p class="text-xl text-gray-600"><span id="jobs">0</span> Jobs</p>
       </div>
     </section>
@@ -57,35 +57,33 @@
       </div>
     </section>
     <!-- main card start from here  -->
-    <section id="job-applications" class="py-6 space-y-2">
+    <section id="job-applications" class="py-6 space-y-6">
       <!-- card 1 -->
       <div class="flex justify-between border border-gray-500 p-3 rounded-md">
         <!-- hero part -->
         <div class="space-y-4">
           <!-- 1st part  -->
           <div>
-            <h2 class="offers text-2xl">Offer-1</h2>
+            <h2 class="offers text-2xl">Mobile First Corp</h2>
             <p class="kindof text-[18px] text-gray-600">React Native Developer</p>
           </div>
           <!-- 2nd part  -->
-          <div>
+          <div class="space-y-4">
             <p class="selary text-[16px] text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
-            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.
-              Work on
-              products used by millions of users worldwide.</p>
+            <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
+            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.Work on products used by millions of users worldwide.</p>
           </div>
           <!-- 3rd part -->
-          <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
 
           <div>
-            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">interview</button>
-            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">Rejected</button>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">INTERVIEW</button>
+            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">REJECTED</button>
           </div>
 
         </div>
         <!--  delete button part  -->
-        <div>
-          <button class="delete-btn"><img src="./image/Trash.png" alt=""></button>
+        <div class="md:p-8">
+          <button class="delete-btn"><img class="md:w-8 md:h-8" src="./image/Trash.png" alt=""></button>
         </div>
 
       </div>
@@ -95,28 +93,27 @@
         <div class="space-y-4">
           <!-- 1st part  -->
           <div>
-            <h2 class="offers text-2xl">Offer-2</h2>
-            <p class="kindof text-[18px] text-gray-600">React Native Developer</p>
+            <h2 class="offers text-2xl">WebFlow Agency</h2>
+            <p class="kindof text-[18px] text-gray-600">Web Designer & Developer</p>
           </div>
           <!-- 2nd part  -->
-          <div>
-            <p class="selary text-[16px] text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
-            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.
-              Work on
-              products used by millions of users worldwide.</p>
+          <div class="space-y-4">
+            <p class="selary text-[16px] text-gray-600">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
+            <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
+            <p class="requirment text-[18px] text-gray-600">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design
+            trends.</p>
           </div>
           <!-- 3rd part -->
-          <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
 
           <div>
-            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">interview</button>
-            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">Rejected</button>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">INTERVIEW</button>
+            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">REJECTED</button>
           </div>
 
         </div>
         <!--  delete button part  -->
-        <div>
-          <button class="delete-btn"><img src="./image/Trash.png" alt=""></button>
+        <div class="md:p-8">
+          <button class="delete-btn"><img class="md:w-8 md:h-8" src="./image/Trash.png" alt=""></button>
         </div>
 
       </div>
@@ -126,28 +123,30 @@
         <div class="space-y-4">
           <!-- 1st part  -->
           <div>
-            <h2 class="offers text-2xl">Offer-3</h2>
-            <p class="kindof text-[18px] text-gray-600">React Native Developer</p>
+            <h2 class="offers text-2xl">DataViz Solutions</h2>
+            <p class="kindof text-[18px] text-gray-600">Data Visualization Specialist</p>
           </div>
           <!-- 2nd part  -->
-          <div>
-            <p class="selary text-[16px] text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
-            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.
-              Work on
-              products used by millions of users worldwide.</p>
+          <div class="space-y-4">
+            <p class="selary text-[16px] text-gray-600">Boston, MA
+            •
+            Full-time
+            •
+            $125,000 - $165,000</p>
+            <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
+            <p class="requirment text-[18px] text-gray-600">Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.</p>
           </div>
           <!-- 3rd part -->
-          <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
 
           <div>
-            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">interview</button>
-            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">Rejected</button>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">INTERVIEW</button>
+            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">REJECTED</button>
           </div>
 
         </div>
         <!--  delete button part  -->
-        <div>
-          <button class="delete-btn"><img src="./image/Trash.png" alt=""></button>
+        <div class="md:p-8">
+          <button class="delete-btn"><img class="md:w-8 md:h-8" src="./image/Trash.png" alt=""></button>
         </div>
 
       </div>
@@ -157,28 +156,31 @@
         <div class="space-y-4">
           <!-- 1st part  -->
           <div>
-            <h2 class="offers text-2xl">Offer-4</h2>
-            <p class="kindof text-[18px] text-gray-600">React Native Developer</p>
+            <h2 class="offers text-2xl">CloudFirst Inc</h2>
+            <p class="kindof text-[18px] text-gray-600">Backend Developer</p>
           </div>
           <!-- 2nd part  -->
-          <div>
-            <p class="selary text-[16px] text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
-            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.
-              Work on
-              products used by millions of users worldwide.</p>
+          <div class="space-y-4">
+            <p class="selary text-[16px] text-gray-600">Seattle, WA
+            •
+            Full-time
+            •
+            $140,000 - $190,000</p>
+            <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
+            <p class="requirment text-[18px] text-gray-600">Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health
+            insurance, and professional development opportunities.</p>
           </div>
           <!-- 3rd part -->
-          <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
 
           <div>
-            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">interview</button>
-            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">Rejected</button>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">INTERVIEW</button>
+            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">REJECTED</button>
           </div>
 
         </div>
         <!--  delete button part  -->
-        <div>
-          <button class="delete-btn"><img src="./image/Trash.png" alt=""></button>
+        <div class="md:p-8">
+          <button class="delete-btn"><img class="md:w-8 md:h-8" src="./image/Trash.png" alt=""></button>
         </div>
 
       </div>
@@ -188,28 +190,31 @@
         <div class="space-y-4">
           <!-- 1st part  -->
           <div>
-            <h2 class="offers text-2xl">Offer-5</h2>
-            <p class="kindof text-[18px] text-gray-600">React Native Developer</p>
+            <h2 class="offers text-2xl">Innovation Labs</h2>
+            <p class="kindof text-[18px] text-gray-600">UI/UX Engineer</p>
           </div>
           <!-- 2nd part  -->
-          <div>
-            <p class="selary text-[16px] text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
-            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.
-              Work on
-              products used by millions of users worldwide.</p>
+          <div class="space-y-4">
+            <p class="selary text-[16px] text-gray-600">Austin, TX
+            •
+            Full-time
+            •
+            $110,000 - $150,000</p>
+            <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
+            <p class="requirment text-[18px] text-gray-600">Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development
+            expertise required.</p>
           </div>
           <!-- 3rd part -->
-          <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
 
           <div>
-            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">interview</button>
-            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">Rejected</button>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">INTERVIEW</button>
+            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">REJECTED</button>
           </div>
 
         </div>
         <!--  delete button part  -->
-        <div>
-          <button class="delete-btn"><img src="./image/Trash.png" alt=""></button>
+        <div class="md:p-8">
+          <button class="delete-btn"><img class="md:w-8 md:h-8" src="./image/Trash.png" alt=""></button>
         </div>
 
       </div>
@@ -219,28 +224,31 @@
         <div class="space-y-4">
           <!-- 1st part  -->
           <div>
-            <h2 class="offers text-2xl">Offer-6</h2>
-            <p class="kindof text-[18px] text-gray-600">React Native Developer</p>
+            <h2 class="offers text-2xl">MegaCorp Solutions</h2>
+            <p class="kindof text-[18px] text-gray-600">JavaScript Developer</p>
           </div>
           <!-- 2nd part  -->
-          <div>
-            <p class="selary text-[16px] text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
-            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.
-              Work on
-              products used by millions of users worldwide.</p>
+          <div class="space-y-4">
+            <p class="selary text-[16px] text-gray-600">New York, NY
+            •
+            Full-time
+            •
+            $130,000 - $170,00</p>
+            <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
+            <p class="requirment text-[18px] text-gray-600">Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health
+            insurance, and professional development opportunities.</p>
           </div>
           <!-- 3rd part -->
-          <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
 
           <div>
-            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">interview</button>
-            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">Rejected</button>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">INTERVIEW</button>
+            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">REJECTED</button>
           </div>
 
         </div>
         <!--  delete button part  -->
-        <div>
-          <button class="delete-btn"><img src="./image/Trash.png" alt=""></button>
+        <div class="md:p-8">
+          <button class="delete-btn"><img class="md:w-8 md:h-8" src="./image/Trash.png" alt=""></button>
         </div>
 
       </div>
@@ -250,28 +258,31 @@
         <div class="space-y-4">
           <!-- 1st part  -->
           <div>
-            <h2 class="offers text-2xl">Offer-7</h2>
-            <p class="kindof text-[18px] text-gray-600">React Native Developer</p>
+            <h2 class="offers text-2xl">StartupXYZ</h2>
+            <p class="kindof text-[18px] text-gray-600">Full Stack Engineer</p>
           </div>
           <!-- 2nd part  -->
-          <div>
-            <p class="selary text-[16px] text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
-            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.
-              Work on
-              products used by millions of users worldwide.</p>
+          <div class="space-y-4">
+            <p class="selary text-[16px] text-gray-600">Remote
+            •
+            Full-time
+            •
+            $120,000 - $160,000</p>
+            <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
+            <p class="requirment text-[18px] text-gray-600">Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits
+            and equity package included.</p>
           </div>
           <!-- 3rd part -->
-          <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
 
           <div>
-            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">interview</button>
-            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">Rejected</button>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">INTERVIEW</button>
+            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">REJECTED</button>
           </div>
 
         </div>
         <!--  delete button part  -->
-        <div>
-          <button class="delete-btn"><img src="./image/Trash.png" alt=""></button>
+        <div class="md:p-8">
+          <button class="delete-btn"><img class="md:w-8 md:h-8" src="./image/Trash.png" alt=""></button>
         </div>
 
       </div>
@@ -281,28 +292,31 @@
         <div class="space-y-4">
           <!-- 1st part  -->
           <div>
-            <h2 class="offers text-2xl">Offer-8</h2>
-            <p class="kindof text-[18px] text-gray-600">React Native Developer</p>
+            <h2 class="offers text-2xl">TechCorp Industries</h2>
+            <p class="kindof text-[18px] text-gray-600">Senior Frontend Developer</p>
           </div>
           <!-- 2nd part  -->
-          <div>
-            <p class="selary text-[16px] text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
-            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.
-              Work on
-              products used by millions of users worldwide.</p>
+          <div class="space-y-4">
+            <p class="selary text-[16px] text-gray-600">San Francisco, CA
+            •
+            Full-time
+            •
+            $130,000 - $175,000</p>
+            <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
+            <p class="requirment text-[18px] text-gray-600">We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You
+            will work with a talented team on cutting-edge projects.</p>
           </div>
           <!-- 3rd part -->
-          <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">NOT APPLIED</button>
 
           <div>
-            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">interview</button>
-            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">Rejected</button>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">INTERVIEW</button>
+            <button class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">REJECTED</button>
           </div>
 
         </div>
         <!--  delete button part  -->
-        <div>
-          <button class="delete-btn"><img src="./image/Trash.png" alt=""></button>
+        <div class="md:p-8">
+          <button class="delete-btn"><img class="md:w-8 md:h-8" src="./image/Trash.png" alt=""></button>
         </div>
 
       </div>

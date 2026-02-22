@@ -72,14 +72,14 @@ mainContainer.addEventListener('click', function (event) {
     const requirment = parentNode.querySelector('.requirment').innerText;
     const applyBtn = parentNode.querySelector('.apply-btn').innerText;
 
-    parentNode.querySelector('.apply-btn').innerText = 'InterView';
+    parentNode.querySelector('.apply-btn').innerText = 'INTERVIEW';
 
     const cardInfo = {
       offerName,
       kindOf,
       selary,
       requirment,
-      applyBtn: 'interview',
+      applyBtn: 'INTERVIEW',
     };
 
     const avaiableOffer = interviewArray.find(
@@ -106,14 +106,14 @@ mainContainer.addEventListener('click', function (event) {
     const requirment = parentNode.querySelector('.requirment').innerText;
     const applyBtn = parentNode.querySelector('.apply-btn').innerText;
 
-    parentNode.querySelector('.apply-btn').innerText = 'reject';
+    parentNode.querySelector('.apply-btn').innerText = 'REJECT';
 
     const cardInfo = {
       offerName,
       kindOf,
       selary,
       requirment,
-      applyBtn: 'reject',
+      applyBtn: 'REJECT',
     };
 
     const avaiableOffer = recejtArray.find(
@@ -258,32 +258,30 @@ function moveInterview() {
 
     let div = document.createElement('div');
     div.className =
-      'flex justify-between border border-gray-500 p-3 rounded-md';
-    div.innerHTML = `               <div class="space-y-4">
+      'flex justify-between border border-gray-500 p-3 rounded-md mb-6';
+    div.innerHTML = `               <div class="space-y-4 mb-4">
           <!-- 1st part  -->
           <div>
             <h2 class="offers text-2xl">${interview.offerName}</h2>
-            <p class="kindof text-[18px] text-gray-600">React Native Developer</p>
+            <p class="kindof text-[18px] text-gray-600">${interview.kindOf}</p>
           </div>
           <!-- 2nd part  -->
-          <div>
-            <p class="selary text-[16px] text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
-            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.
-              Work on
-              products used by millions of users worldwide.</p>
+          <div class="space-y-4">
+            <p class="selary text-[16px] text-gray-600">${interview.selary}</p>
+            <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">${interview.applyBtn}</button>  
+            <p class="requirment text-[18px] text-gray-600">${interview.requirment}</p>
             </div>
             <!-- 3rd part -->
-    <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">${interview.applyBtn}</button>  
 
           <div>
-            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">interview</button>
-            <button  class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">Rejected</button>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">INTERVIEW</button>
+            <button  class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">REJECTED</button>
           </div>
 
         </div>
         <!--  delete button part  -->
-        <div>
-          <button class="delete-btn"><img src="./image/Trash.png" alt=""></button>
+        <div class="md:p-8">
+          <button class="delete-btn"><img class="md:w-8 md:h-8" src="./image/Trash.png" alt=""></button>
         </div>`;
     filteredSection.appendChild(div);
   }
@@ -310,27 +308,25 @@ function moveReject() {
           <!-- 1st part  -->
           <div>
             <h2 class="offers text-2xl">${reject.offerName}</h2>
-            <p class="kindof text-[18px] text-gray-600">React Native Developer</p>
+            <p class="kindof text-[18px] text-gray-600">${reject.kindOf}</p>
           </div>
           <!-- 2nd part  -->
-          <div>
-            <p class="selary text-[16px] text-gray-600">Remote • Full-time • $130,000 - $175,000</p>
-            <p class="requirment text-[18px] text-gray-600">Build cross-platform mobile applications using React Native.
-              Work on
-              products used by millions of users worldwide.</p>
+          <div class="space-y-4">
+            <p class="selary text-[16px] text-gray-600">${reject.selary}</p>
+            <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">${reject.applyBtn}</button>  
+            <p class="requirment text-[18px] text-gray-600">${reject.requirment}.</p>
             </div>
             <!-- 3rd part -->
-    <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">${reject.applyBtn}</button>  
 
           <div>
-            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">interview</button>
-            <button  class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">Rejected</button>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">INTERVIEW</button>
+            <button  class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">REJECTED</button>
           </div>
 
         </div>
         <!--  delete button part  -->
-        <div>
-          <button class="delete-btn"><img src="./image/Trash.png" alt=""></button>
+        <div class="md:p-8">
+          <button class="delete-btn"><img class="md:w-8 md:h-8" src="./image/Trash.png" alt=""></button>
         </div>`;
     filteredSection.appendChild(div);
   }
