@@ -27,7 +27,17 @@ function showCount() {
 showCount();
 
 function showCountJobs() {
-  jobs.innerText = allCardsDiv.children.length;
+  total.innerText = allCardsDiv.children.length;
+  interviewCount.innerText = interviewArray.length;
+  rejectCount.innerText = recejtArray.length;
+
+  if (currentoffers === 'interview-btn-main') {
+    jobs.innerText = interviewArray.length;
+  } else if (currentoffers === 'reject-btn-main') {
+    jobs.innerText = recejtArray.length;
+  } else {
+    jobs.innerText = allCardsDiv.children.length
+  }
 }
 showCountJobs();
 // end
@@ -60,6 +70,7 @@ function toggleStyle(id) {
     filteredSection.classList.remove('hidden');
     moveReject();
   }
+  showCountJobs();
 }
 // end
 mainContainer.addEventListener('click', function (event) {
@@ -73,6 +84,8 @@ mainContainer.addEventListener('click', function (event) {
     const applyBtn = parentNode.querySelector('.apply-btn').innerText;
 
     parentNode.querySelector('.apply-btn').innerText = 'INTERVIEW';
+    // parentNode.querySelector('.apply-btn').className =
+    //   `border-green-500 border px-4 py-2 rounded-md text-green-500`;
 
     const cardInfo = {
       offerName,
@@ -93,6 +106,7 @@ mainContainer.addEventListener('click', function (event) {
       item => item.offerName != cardInfo.offerName,
     );
     showCount();
+    showCountJobs();
 
     if (currentoffers == 'interview-btn-main') {
       moveInterview();
@@ -106,7 +120,9 @@ mainContainer.addEventListener('click', function (event) {
     const requirment = parentNode.querySelector('.requirment').innerText;
     const applyBtn = parentNode.querySelector('.apply-btn').innerText;
 
-    parentNode.querySelector('.apply-btn').innerText = 'REJECT';
+    parentNode.querySelector('.apply-btn').innerHTML = 'REJECT';
+    // parentNode.querySelector('.apply-btn').className =
+    //   `border-red-500 border px-4 py-2 rounded-md text-red-500`;
 
     const cardInfo = {
       offerName,
@@ -132,6 +148,7 @@ mainContainer.addEventListener('click', function (event) {
     }
 
     showCount();
+    showCountJobs();
   }
   // delete-btn
 
@@ -143,7 +160,9 @@ mainContainer.addEventListener('click', function (event) {
 
     const card = deleteButton.parentNode.parentNode;
 
-    if (!card) return;
+    if (!card) {
+      return;
+    }
 
     const offerName = card.querySelector('.offers').innerText;
 
@@ -155,89 +174,15 @@ mainContainer.addEventListener('click', function (event) {
 
     card.remove();
     showCount();
+    showCountJobs();
 
     if (currentoffers === 'interview-btn-main') {
       moveInterview();
-    }
-
-    if (currentoffers === 'reject-btn-main') {
+    } else if (currentoffers === 'reject-btn-main') {
       moveReject();
     }
   }
 });
-
-// mainContainer.addEventListener('click', function (event) {
-//   if (event.target.classList.contains('interview-btn')) {
-//     const parentNode = event.target.parentNode.parentNode;
-
-//     const offerName = parentNode.querySelector('.offers').innerText;
-//     const kindOf = parentNode.querySelector('.kindof').innerText;
-//     const selary = parentNode.querySelector('.selary').innerText;
-//     const requirment = parentNode.querySelector('.requirment').innerText;
-//     const applyBtn = parentNode.querySelector('.apply-btn').innerText;
-
-//     parentNode.querySelector('.apply-btn').innerText = 'InterView';
-
-//     const cardInfo = {
-//       offerName,
-//       kindOf,
-//       selary,
-//       requirment,
-//       applyBtn: 'interview',
-//     };
-
-//     const avaiableOffer = interviewArray.find(
-//       item => item.offerName == cardInfo.offerName,
-//     );
-
-//     if (!avaiableOffer) {
-//       interviewArray.push(cardInfo);
-//     }
-//     recejtArray = recejtArray.filter(
-//       item => item.offerName != cardInfo.offerName,
-//     );
-//     showCount();
-
-//     if (currentoffers == 'reject-btn-main') {
-//       moveReject();
-//     }
-//   } else if (event.target.classList.contains('reject-btn')) {
-//     const parentNode = event.target.parentNode.parentNode;
-
-//     const offerName = parentNode.querySelector('.offers').innerText;
-//     const kindOf = parentNode.querySelector('.kindof').innerText;
-//     const selary = parentNode.querySelector('.selary').innerText;
-//     const requirment = parentNode.querySelector('.requirment').innerText;
-//     const applyBtn = parentNode.querySelector('.apply-btn').innerText;
-
-//     parentNode.querySelector('.apply-btn').innerText = 'reject';
-
-//     const cardInfo = {
-//       offerName,
-//       kindOf,
-//       selary,
-//       requirment,
-//       applyBtn: 'reject',
-//     };
-
-//     const avaiableOffer = recejtArray.find(
-//       item => item.offerName == cardInfo.offerName,
-//     );
-
-//     if (!avaiableOffer) {
-//       recejtArray.push(cardInfo);
-//     }
-//     interviewArray = interviewArray.filter(
-//       item => item.offerName != cardInfo.offerName,
-//     );
-
-//     if (currentoffers == 'interview-btn-main') {
-//       moveInterview();
-//     }
-
-//     showCount();
-//   }
-// });
 
 // filter function start from here
 function moveInterview() {
