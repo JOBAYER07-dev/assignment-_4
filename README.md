@@ -5,10 +5,12 @@
    querySelector / querySelectorAll:  querySelector and querySelectorAll do a lot of the same things; they both find elements like CSS. Here, querySelector returns the first one it finds. And querySelectorAll returns all the classes of the same        type in the form of a NodeList.
    
 3. How do you create and insert a new element into the DOM?
+   --->
+   To create a new element, first create any tag using .createElement, then write text inside it using .innerText. Then appendChild will insert it into the DOM.
+   
+5. What is Event Bubbling? And how does it work?
 --->
-4. What is Event Bubbling? And how does it work?
+6. What is Event Delegation in JavaScript? Why is it useful?
 --->
-5. What is Event Delegation in JavaScript? Why is it useful?
---->
-6. What is the difference between preventDefault() and stopPropagation() methods?
+7. What is the difference between preventDefault() and stopPropagation() methods?
 --->
