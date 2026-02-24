@@ -9,8 +9,14 @@
    To create a new element, first create any tag using .createElement, then write text inside it using .innerText. Then appendChild will insert it into the DOM.
    
 5. What is Event Bubbling? And how does it work?
+   --->
+   When an event occurs on a child element, it goes step by step to the parent, grandparent, body. If there is a button inside a div and you click on the button, the button will be clicked first, and then the div will be clicked.
+   
+7. What is Event Delegation in JavaScript? Why is it useful?
 --->
-6. What is Event Delegation in JavaScript? Why is it useful?
---->
-7. What is the difference between preventDefault() and stopPropagation() methods?
+
+   Instead of having separate events for each child, you can handle everything with one event for the parent. This improves performance, dynamic elements work, and the code is clean.
+
+   
+9. What is the difference between preventDefault() and stopPropagation() methods?
 --->
