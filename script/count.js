@@ -74,6 +74,8 @@ function toggleStyle(id) {
 }
 // end
 mainContainer.addEventListener('click', function (event) {
+
+  // interview btn
   if (event.target.classList.contains('interview-btn')) {
     const parentNode = event.target.parentNode.parentNode;
 
@@ -82,6 +84,8 @@ mainContainer.addEventListener('click', function (event) {
     const selary = parentNode.querySelector('.selary').innerText;
     const requirment = parentNode.querySelector('.requirment').innerText;
     const applyBtn = parentNode.querySelector('.apply-btn').innerText;
+
+    // applyBtnUpgrade
 
     parentNode.querySelector('.apply-btn').innerText = 'INTERVIEW';
     parentNode.querySelector('.apply-btn').className =
@@ -95,34 +99,38 @@ mainContainer.addEventListener('click', function (event) {
       applyBtn: 'INTERVIEW',
     };
 
-    // new
+    // remove from rejectArray
     recejtArray = recejtArray.filter(
       item => item.offerName != cardInfo.offerName,
     );
 
-    // new
+    // romovefrom interviewArray and add  new item 
     interviewArray = interviewArray.filter(
       item => item.offerName !== cardInfo.offerName,
     );
     interviewArray.push(cardInfo);
-    // new
+  
     showCountJobs();
 
-    // new
+  
     if (currentoffers === 'interview-btn-main') {
       moveInterview();
     } else if (currentoffers === 'reject-btn-main') {
       moveReject();
     }
-  } else if (event.target.classList.contains('reject-btn')) {
-    const parentNode = event.target.parentNode.parentNode;
+  }
+  // reject button 
 
+  else if (event.target.classList.contains('reject-btn')) {
+    const parentNode = event.target.parentNode.parentNode;
     const offerName = parentNode.querySelector('.offers').innerText;
     const kindOf = parentNode.querySelector('.kindof').innerText;
     const selary = parentNode.querySelector('.selary').innerText;
     const requirment = parentNode.querySelector('.requirment').innerText;
     const applyBtn = parentNode.querySelector('.apply-btn').innerText;
-
+    
+    // applyBtnUpgrade
+    
     parentNode.querySelector('.apply-btn').innerText = 'REJECT';
     parentNode.querySelector('.apply-btn').className =
       'apply-btn border-red-500 border px-4 py-2 rounded-md text-red-500 cursor-pointer';
@@ -133,10 +141,12 @@ mainContainer.addEventListener('click', function (event) {
       requirment,
       applyBtn: 'REJECT',
     };
+
+    // remove from interviewArray 
     interviewArray = interviewArray.filter(
       item => item.offerName !== offerName,
     );
-
+// remove from recejtArray and add new 
     recejtArray = recejtArray.filter(item => item.offerName !== offerName);
     recejtArray.push(cardInfo);
 
@@ -182,7 +192,7 @@ function moveInterview() {
   filteredSection.innerHTML = '';
 
   if (interviewArray.length === 0) {
-    filteredSection.innerHTML = `      <div class="min-h-screen flex flex-col justify-center items-center text-center space-y-1">
+    filteredSection.innerHTML = `      <div class=" mt-20 flex flex-col justify-center items-center text-center space-y-1">
         <img src="./image/jobs.png" alt="">
         <h2 class="text-2xl font-bold">No jobs available</h2>
         <p class="text-xl text-gray-500">Check back soon for new job opportunities</p>
@@ -231,7 +241,7 @@ function moveReject() {
 
   if (recejtArray.length === 0) {
     filteredSection.innerHTML = `
-          <div class="min-h-screen flex flex-col justify-center items-center text-center space-y-1">
+          <div class="mt-20 flex flex-col justify-center items-center text-center space-y-1">
         <img src="./image/jobs.png" alt="">
         <h2 class="text-2xl font-bold">No jobs available</h2>
         <p class="text-xl text-gray-500">Check back soon for new job opportunities</p>
