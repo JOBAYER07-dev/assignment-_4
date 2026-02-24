@@ -36,7 +36,7 @@ function showCountJobs() {
   } else if (currentoffers === 'reject-btn-main') {
     jobs.innerText = recejtArray.length;
   } else {
-    jobs.innerText = allCardsDiv.children.length
+    jobs.innerText = allCardsDiv.children.length;
   }
 }
 showCountJobs();
@@ -84,8 +84,8 @@ mainContainer.addEventListener('click', function (event) {
     const applyBtn = parentNode.querySelector('.apply-btn').innerText;
 
     parentNode.querySelector('.apply-btn').innerText = 'INTERVIEW';
-    // parentNode.querySelector('.apply-btn').className =
-    //   `border-green-500 border px-4 py-2 rounded-md text-green-500`;
+    parentNode.querySelector('.apply-btn').className =
+      'apply-btn border-green-500 border px-4 py-2 rounded-md text-green-500 cursor-pointer';
 
     const cardInfo = {
       offerName,
@@ -95,21 +95,24 @@ mainContainer.addEventListener('click', function (event) {
       applyBtn: 'INTERVIEW',
     };
 
-    const avaiableOffer = interviewArray.find(
-      item => item.offerName == cardInfo.offerName,
-    );
-
-    if (!avaiableOffer) {
-      interviewArray.push(cardInfo);
-    }
+    // new
     recejtArray = recejtArray.filter(
       item => item.offerName != cardInfo.offerName,
     );
-    showCount();
+
+    // new
+    interviewArray = interviewArray.filter(
+      item => item.offerName !== cardInfo.offerName,
+    );
+    interviewArray.push(cardInfo);
+    // new
     showCountJobs();
 
-    if (currentoffers == 'interview-btn-main') {
+    // new
+    if (currentoffers === 'interview-btn-main') {
       moveInterview();
+    } else if (currentoffers === 'reject-btn-main') {
+      moveReject();
     }
   } else if (event.target.classList.contains('reject-btn')) {
     const parentNode = event.target.parentNode.parentNode;
@@ -120,10 +123,9 @@ mainContainer.addEventListener('click', function (event) {
     const requirment = parentNode.querySelector('.requirment').innerText;
     const applyBtn = parentNode.querySelector('.apply-btn').innerText;
 
-    parentNode.querySelector('.apply-btn').innerHTML = 'REJECT';
-    // parentNode.querySelector('.apply-btn').className =
-    //   `border-red-500 border px-4 py-2 rounded-md text-red-500`;
-
+    parentNode.querySelector('.apply-btn').innerText = 'REJECT';
+    parentNode.querySelector('.apply-btn').className =
+      'apply-btn border-red-500 border px-4 py-2 rounded-md text-red-500 cursor-pointer';
     const cardInfo = {
       offerName,
       kindOf,
@@ -131,49 +133,40 @@ mainContainer.addEventListener('click', function (event) {
       requirment,
       applyBtn: 'REJECT',
     };
-
-    const avaiableOffer = recejtArray.find(
-      item => item.offerName == cardInfo.offerName,
-    );
-
-    if (!avaiableOffer) {
-      recejtArray.push(cardInfo);
-    }
     interviewArray = interviewArray.filter(
-      item => item.offerName != cardInfo.offerName,
+      item => item.offerName !== offerName,
     );
 
-    if (currentoffers == 'interview-btn-main') {
-      moveInterview();
-    }
+    recejtArray = recejtArray.filter(item => item.offerName !== offerName);
+    recejtArray.push(cardInfo);
 
-    showCount();
     showCountJobs();
-  }
-  // delete-btn
 
+    if (currentoffers === 'interview-btn-main') {
+      moveInterview();
+    } else if (currentoffers === 'reject-btn-main') {
+      moveReject();
+    }
+  }
+
+  // delete buttton
   if (
     event.target.parentNode &&
     event.target.parentNode.classList.contains('delete-btn')
   ) {
     const deleteButton = event.target.parentNode;
-
     const card = deleteButton.parentNode.parentNode;
 
-    if (!card) {
-      return;
-    }
+    if (!card) return;
 
     const offerName = card.querySelector('.offers').innerText;
 
     interviewArray = interviewArray.filter(
       item => item.offerName !== offerName,
     );
-
     recejtArray = recejtArray.filter(item => item.offerName !== offerName);
 
     card.remove();
-    showCount();
     showCountJobs();
 
     if (currentoffers === 'interview-btn-main') {
@@ -213,20 +206,20 @@ function moveInterview() {
           <!-- 2nd part  -->
           <div class="space-y-4">
             <p class="selary text-[16px] text-gray-600">${interview.selary}</p>
-            <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">${interview.applyBtn}</button>  
+            <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md text-green-500 cursor-pointer">${interview.applyBtn}</button>  
             <p class="requirment text-[18px] text-gray-600">${interview.requirment}</p>
             </div>
             <!-- 3rd part -->
 
           <div>
-            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">INTERVIEW</button>
-            <button  class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">REJECTED</button>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500 cursor-pointer">INTERVIEW</button>
+            <button  class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500 cursor-pointer">REJECTED</button>
           </div>
 
         </div>
         <!--  delete button part  -->
         <div class="md:p-8">
-          <button class="delete-btn"><img class="md:w-8 md:h-8" src="./image/Trash.png" alt=""></button>
+          <button class="delete-btn cursor-pointer"><img class="md:w-8 md:h-8" src="./image/Trash.png" alt=""></button>
         </div>`;
     filteredSection.appendChild(div);
   }
@@ -243,6 +236,7 @@ function moveReject() {
         <h2 class="text-2xl font-bold">No jobs available</h2>
         <p class="text-xl text-gray-500">Check back soon for new job opportunities</p>
       </div>`;
+    return;
   }
 
   for (let reject of recejtArray) {
@@ -258,20 +252,20 @@ function moveReject() {
           <!-- 2nd part  -->
           <div class="space-y-4">
             <p class="selary text-[16px] text-gray-600">${reject.selary}</p>
-            <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md">${reject.applyBtn}</button>  
+            <button class="apply-btn border-gray-500 border px-4 py-2 rounded-md text-red-500 cursor-pointer">${reject.applyBtn}</button>  
             <p class="requirment text-[18px] text-gray-600">${reject.requirment}.</p>
             </div>
             <!-- 3rd part -->
 
           <div>
-            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500">INTERVIEW</button>
-            <button  class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500">REJECTED</button>
+            <button class="interview-btn border-green-500 border px-4 py-2 rounded-md text-green-500 cursor-pointer">INTERVIEW</button>
+            <button  class="reject-btn border-red-500 border px-4 py-2 rounded-md text-red-500 cursor-pointer">REJECTED</button>
           </div>
 
         </div>
         <!--  delete button part  -->
         <div class="md:p-8">
-          <button class="delete-btn"><img class="md:w-8 md:h-8" src="./image/Trash.png" alt=""></button>
+          <button class="delete-btn cursor-pointer"><img class="md:w-8 md:h-8" src="./image/Trash.png" alt=""></button>
         </div>`;
     filteredSection.appendChild(div);
   }
