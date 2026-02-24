@@ -206,7 +206,7 @@ function moveInterview() {
 
     let div = document.createElement('div');
     div.className =
-      'flex justify-between border border-gray-500 p-3 rounded-md mb-6';
+      'flex justify-between border border-gray-500 p-3 rounded-md mb-6 transition-all duration-300 case-out hover:translate-y-1 hover:scale-[1.01] hover:shadow-xl';
     div.innerHTML = `               <div class="space-y-4 mb-4">
           <!-- 1st part  -->
           <div>
@@ -252,7 +252,7 @@ function moveReject() {
   for (let reject of recejtArray) {
     let div = document.createElement('div');
     div.className =
-      'flex justify-between border border-gray-500 p-3 rounded-md';
+      'flex justify-between border border-gray-500 p-3 rounded-md mb-6 transition-all duration-300 case-out hover:translate-y-1 hover:scale-[1.01] hover:shadow-xl';
     div.innerHTML = `               <div class="space-y-4">
           <!-- 1st part  -->
           <div>
